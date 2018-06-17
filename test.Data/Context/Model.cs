@@ -37,5 +37,6 @@ namespace test.Data.Context
 
         public virtual DbSet<Pupil> Pupils { get; set; }
         public virtual DbSet<Teacher> Teachers { get; set; }
+        public virtual DbSet<SchoolClass> SchoolClasses { get; set; }
     }
 }
