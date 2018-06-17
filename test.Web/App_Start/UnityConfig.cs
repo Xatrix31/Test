@@ -1,5 +1,8 @@
 using System;
-
+using test.Data;
+using test.Data.Context;
+using test.Models.Interfaces;
+using test.Services.Services;
 using Unity;
 
 namespace test.Web
@@ -41,7 +44,10 @@ namespace test.Web
             // container.LoadConfiguration();
 
             // TODO: Register your type's mappings here.
-            // container.RegisterType<IProductRepository, ProductRepository>();
+            container.RegisterType<Model>();
+            container.RegisterType<IRepository, Repository>();
+            container.RegisterType<ITeachersService, TeachersService>();
+            container.RegisterType<IPupilsService, PupilsService>();
         }
     }
 }

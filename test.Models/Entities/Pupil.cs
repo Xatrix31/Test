@@ -19,5 +19,7 @@ namespace test.Models.Entities
         public string Surname { get; set; }
 
         public string Sex { get; set; }
+
+        public virtual SchoolClass Class { get; set; }
     }
 }

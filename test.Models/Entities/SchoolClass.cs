@@ -10,5 +10,7 @@ namespace test.Models.Entities
     {
         public long Id { get; set; }
 
+        public virtual ICollection<Pupil> Pupils { get; set; }
+        public virtual ICollection<Teacher> Teachers { get; set; }
     }
 }

@@ -279,6 +279,20 @@
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\test.Data\test.Data.csproj">
+      <Project>{CF333A3F-17FB-4F48-9021-EBE17F71AC39}</Project>
+      <Name>test.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\test.Models\test.Models.csproj">
+      <Project>{EB86C49C-9B73-4D75-BD33-81A0B4B70CFE}</Project>
+      <Name>test.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\test.Services\test.Services.csproj">
+      <Project>{CF6FE374-18AC-45E1-BD17-11EBF74DAA09}</Project>
+      <Name>test.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

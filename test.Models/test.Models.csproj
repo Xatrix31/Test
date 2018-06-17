@@ -44,10 +44,12 @@
     <Compile Include="Entities\Pupil.cs" />
     <Compile Include="Entities\SchoolClass.cs" />
     <Compile Include="Entities\Teacher.cs" />
+    <Compile Include="Interfaces\IPupilsService.cs" />
+    <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Interfaces\ITeachersService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Interfaces\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

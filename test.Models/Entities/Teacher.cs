@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace test.Models.Entities
@@ -17,5 +18,7 @@ namespace test.Models.Entities
         [DataType("varchar2")]
         [MaxLength]
         public string Surname { get; set; }
+
+        public virtual ICollection<SchoolClass> Classes { get; set; }
     }
 }
