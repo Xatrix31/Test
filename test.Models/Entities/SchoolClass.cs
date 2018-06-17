@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace test.Models
+namespace test.Models.Entities
 {
-    public class Class1
+    public class SchoolClass
     {
+        public long Id { get; set; }
+
     }
 }
