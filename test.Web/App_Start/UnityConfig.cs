@@ -48,6 +48,7 @@ namespace test.Web
             container.RegisterType<IRepository, Repository>();
             container.RegisterType<ITeachersService, TeachersService>();
             container.RegisterType<IPupilsService, PupilsService>();
+            container.RegisterType<IClassesService, ClassesService>();
         }
     }
 }

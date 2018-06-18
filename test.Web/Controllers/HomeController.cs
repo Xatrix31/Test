@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using test.Models.Interfaces;
 using test.Models.ViewModels;
 
@@ -23,14 +19,14 @@ namespace test.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(SchoolClassViewModel viewModel)
+        public ActionResult AddClass(SchoolClassViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
                 ViewBag.Message = "Added";
                 _classesService.AddClass(viewModel);
             }
-            return View();
+            return View("Index");
         }
     }
 }

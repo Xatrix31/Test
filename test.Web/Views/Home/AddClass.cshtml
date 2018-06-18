@@ -1,0 +1,11 @@
+﻿@model test.Models.ViewModels.SchoolClassViewModel
+
+@using (Html.BeginForm())
+{
+    <div style="">
+        @Html.DisplayNameFor(x => x.Name)
+        @Html.DisplayTextFor(x => x.Name)
+        <br><br>
+        <input type="submit" value="Submit" />
+    </div>
+}
