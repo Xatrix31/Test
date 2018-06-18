@@ -30,6 +30,7 @@ namespace test.Data.Context
 
             modelBuilder.Entity<Pupil>().ToTable("Pupils");
             modelBuilder.Entity<Teacher>().ToTable("Teachers");
+            modelBuilder.Entity<SchoolClass>().ToTable("SchoolClasses");
         }
 
         // Добавьте DbSet для каждого типа сущности, который требуется включить в модель. Дополнительные сведения 

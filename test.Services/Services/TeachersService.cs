@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,11 +21,18 @@ namespace test.Services.Services
 
         public void AddTeacher(TeacherViewModel teacher)
         {
+            _repository.AddNew(Mapper.Instance.Map<Teacher>(teacher));
+        }
+
+        public void AddTeacherToClass(long idTeacher)
+        {
             throw new NotImplementedException();
         }
 
         public void DeleteTeacher(long idTeacher)
         {
+            //каскадное удаление
+
             _repository.Delete<Teacher>(idTeacher);
         }
 
@@ -35,10 +43,10 @@ namespace test.Services.Services
 
         public TeacherViewModel GetTeacherById(long idTeacher)
         {
-            throw new NotImplementedException();
+            return Mapper.Instance.Map<TeacherViewModel>(_repository.GetById<Teacher>(idTeacher));
         }
 
-        public void GetTeacherByIdClass(long idClass)
+        public IEnumerable<TeacherViewModel> GetTeachersByIdClass(long idClass)
         {
             throw new NotImplementedException();
         }

@@ -37,9 +37,9 @@ namespace test.Services.Services
             return Mapper.Instance.Map<PupilViewModel>(_repository.GetById<Pupil>(idPupil));
         }
 
-        public ICollection<PupilViewModel> GetPupilsByIdClass(long idClass)
+        public IEnumerable<PupilViewModel> GetPupilsByIdClass(long idClass)
         {
-            return _repository.GetAll<Pupil>().Where(x=> x.IdClass==idClass).AsEnumerable().Select(x=> Mapper.Instance.Map<PupilViewModel>);
+            return _repository.GetAll<Pupil>().Where(x=> x.IdClass==idClass).AsEnumerable().Select(Mapper.Instance.Map<PupilViewModel>);
         }
     }
 }

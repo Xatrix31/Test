@@ -7,7 +7,7 @@ namespace test.Models.Interfaces
     {
         void AddPupil(PupilViewModel pupil);
         PupilViewModel GetPupilById(long idPupil);
-        ICollection<PupilViewModel> GetPupilsByIdClass(long idClass);
+        IEnumerable<PupilViewModel> GetPupilsByIdClass(long idClass);
         void EditPupil(PupilViewModel pupil);
         void DeletePupil(long idPupil);
     }

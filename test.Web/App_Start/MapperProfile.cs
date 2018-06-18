@@ -8,7 +8,7 @@ namespace test.Web
     {
         public MapperProfile()
         {
-            CreateMap<Pupil, PupilViewModel>();
+            CreateMap<Pupil, PupilViewModel>().ForMember(dest => dest.ClassName, opts => opts.MapFrom(src => src.Class.ClassName));
             CreateMap<Teacher, TeacherViewModel>();
         }
     }

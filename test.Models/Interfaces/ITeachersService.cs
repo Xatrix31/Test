@@ -1,4 +1,5 @@
-﻿using test.Models.ViewModels;
+﻿using System.Collections.Generic;
+using test.Models.ViewModels;
 
 namespace test.Models.Interfaces
 {
@@ -6,8 +7,9 @@ namespace test.Models.Interfaces
     {
         void AddTeacher(TeacherViewModel teacher);
         TeacherViewModel GetTeacherById(long idTeacher);
-        void GetTeacherByIdClass(long idClass);
+        IEnumerable<TeacherViewModel> GetTeachersByIdClass(long idClass);
         void EditTeacher(TeacherViewModel teacher);
         void DeleteTeacher(long idTeacher);
+        void AddTeacherToClass(long idTeacher);
     }
 }
