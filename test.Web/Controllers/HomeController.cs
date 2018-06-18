@@ -26,7 +26,7 @@ namespace test.Web.Controllers
                 ViewBag.Message = "Added";
                 _classesService.AddClass(viewModel);
             }
-            return View("Index");
+            return View("Index", _classesService.GetClasses());
         }
     }
 }

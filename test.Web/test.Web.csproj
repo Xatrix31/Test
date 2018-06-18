@@ -274,11 +274,11 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Home\SchoolClassView.cshtml" />
     <Content Include="Views\Home\AddClass.cshtml" />
+    <Content Include="Views\Class\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Class\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

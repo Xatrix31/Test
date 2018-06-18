@@ -1,5 +1,5 @@
 ﻿@model test.Models.ViewModels.SchoolClassViewModel
 <tr>
     <td>@Html.DisplayTextFor(x => x.Name)</td>
-    <td>@Html.ActionLink("View Class", "Index", "Class", new { id = Model.Id })</td>
+    <td>@Html.ActionLink("View Class", "Index", "Class", new { id = Model.Id }, null)</td>
 </tr>

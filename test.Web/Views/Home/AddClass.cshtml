@@ -1,10 +1,10 @@
 ﻿@model test.Models.ViewModels.SchoolClassViewModel
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("AddClass", "Home"))
 {
-    <div style="">
+    <div>
         @Html.DisplayNameFor(x => x.Name)
-        @Html.DisplayTextFor(x => x.Name)
+        @Html.EditorFor(x => x.Name)
         <br><br>
         <input type="submit" value="Submit" />
     </div>
