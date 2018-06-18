@@ -1,5 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using AutoMapper;
+using test.Models.Entities;
 using test.Models.Interfaces;
+using test.Models.ViewModels;
 
 namespace test.Services.Services
 {
@@ -12,29 +17,29 @@ namespace test.Services.Services
             _repository = repository;
         }
 
-        public void AddPupil()
+        public void AddPupil(PupilViewModel pupil)
         {
-            throw new NotImplementedException();
+            _repository.AddNew(Mapper.Instance.Map<Pupil>(pupil));
         }
 
         public void DeletePupil(long idPupil)
         {
-            throw new NotImplementedException();
+            _repository.Delete<Pupil>(idPupil);
         }
 
-        public void EditPupil()
+        public void EditPupil(PupilViewModel pupil)
         {
             throw new NotImplementedException();
         }
 
-        public void GetPupilById(long idPupil)
+        public PupilViewModel GetPupilById(long idPupil)
         {
-            throw new NotImplementedException();
+            return Mapper.Instance.Map<PupilViewModel>(_repository.GetById<Pupil>(idPupil));
         }
 
-        public void GetPupilsByIdClass(long idClass)
+        public ICollection<PupilViewModel> GetPupilsByIdClass(long idClass)
         {
-            throw new NotImplementedException();
+            return _repository.GetAll<Pupil>().Where(x=> x.IdClass==idClass).AsEnumerable().Select(x=> Mapper.Instance.Map<PupilViewModel>);
         }
     }
 }
