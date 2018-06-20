@@ -278,7 +278,8 @@
     <Content Include="Views\Class\Index.cshtml" />
     <Content Include="Views\Home\EditClass.cshtml" />
     <Content Include="Views\Pupil\Pupils.cshtml" />
-    <Content Include="Views\Class\PupilEditor.cshtml" />
+    <Content Include="Views\Shared\PupilEditor.cshtml" />
+    <Content Include="Views\Pupil\EditPupil.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

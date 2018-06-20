@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using test.Models.Interfaces;
 using test.Models.ViewModels;
 
@@ -34,52 +30,52 @@ namespace test.Web.Controllers
                 {
                     _pupilsService.AddPupil(vm);
                 }
-                return RedirectToAction("Index", "Class");
+                return RedirectToAction("Index", "Class", new { id = vm.IdClass });
             }
             catch
             {
-                return RedirectToAction("Index", "Class");
+                return RedirectToAction("Index", "Class", new { id = vm.IdClass });
             }
         }
 
         // GET: Class/Edit/5
         public ActionResult EditPupil(long id)
         {
-            return View();
+            return View(_pupilsService.GetPupilById(id));
         }
 
         // POST: Class/Edit/5
         [HttpPost]
-        public ActionResult EditPupil(long id, PupilViewModel collection)
+        public ActionResult EditPupil(long id, PupilViewModel vm)
         {
             try
             {
                 // TODO: Add update logic here
                 if (ModelState.IsValid)
                 {
-
+                    _pupilsService.EditPupil(vm);
                 }
-                return RedirectToAction("Index", "Class");
+                return RedirectToAction("Index", "Class", new { id = vm.IdClass });
             }
             catch
             {
-                return RedirectToAction("Index", "Class");
+                return RedirectToAction("Index", "Class", new { id = vm.IdClass });
             }
         }
 
         // POST: Class/Delete/5
         [HttpPost]
-        public ActionResult DeletePupil(long id)
+        public ActionResult DeletePupil(PupilViewModel vm)
         {
             try
             {
                 // TODO: Add delete logic here
-                _pupilsService.DeletePupil(id);
-                return RedirectToAction("Index", "Class");
+                _pupilsService.DeletePupil(vm.Id);
+                return RedirectToAction("Index", "Class", new { id = vm.IdClass });
             }
             catch
             {
-                return RedirectToAction("Index", "Class");
+                return RedirectToAction("Index", "Class", new { id = vm.IdClass });
             }
         }
     }

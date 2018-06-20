@@ -1,0 +1,11 @@
+﻿@model test.Models.ViewModels.PupilViewModel
+@{
+    ViewBag.Title = "EditPupil";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>EditPupil</h2>
+@using (Html.BeginForm("EditPupil", "Pupil"))
+{
+    @Html.Partial("PupilEditor", Model)
+}

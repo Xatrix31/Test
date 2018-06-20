@@ -16,5 +16,6 @@
         @Html.EnumDropDownListFor(x => x.Gender)
         @Html.ValidationMessageFor(x => x.Gender)
     </div>
+    @Html.HiddenFor(x=> x.IdClass)
 </div>
-<input type="submit" />
+<input type="submit" value="Submit" class="btn-dark"/>

@@ -29,7 +29,11 @@ namespace test.Services.Services
 
         public void EditPupil(PupilViewModel pupil)
         {
-            throw new NotImplementedException();
+            var src = _repository.GetById<Pupil>(pupil.Id);
+            src.Name = pupil.Name;
+            src.Surname = pupil.Surname;
+            src.Gender = pupil.Gender.ToString();
+            _repository.Save(src);
         }
 
         public PupilViewModel GetPupilById(long idPupil)
@@ -39,7 +43,7 @@ namespace test.Services.Services
 
         public IEnumerable<PupilViewModel> GetPupilsByIdClass(long idClass)
         {
-            return _repository.GetAll<Pupil>().Where(x=> x.IdClass==idClass).AsEnumerable().Select(Mapper.Instance.Map<PupilViewModel>);
+            return _repository.GetAll<Pupil>().Where(x => x.IdClass == idClass).AsEnumerable().Select(Mapper.Instance.Map<PupilViewModel>);
         }
     }
 }

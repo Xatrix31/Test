@@ -19,11 +19,8 @@ namespace test.Models.ViewModels
         [Required]
         public Gender Gender { get; set; }
 
+        [Required]
         [ScaffoldColumn(false)]
         public long IdClass { get; set; }
-
-        [Required]
-        [Display(Name = "Class Name")]
-        public string ClassName { get; set; }
     }
 }
