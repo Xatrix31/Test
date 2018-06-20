@@ -3,86 +3,83 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using test.Models.Interfaces;
+using test.Models.ViewModels;
 
 namespace test.Web.Controllers
 {
     public class PupilController : Controller
     {
+        private readonly IPupilsService _pupilsService;
+
+        public PupilController(IPupilsService pupilsService)
+        {
+            _pupilsService = pupilsService;
+        }
+
         // GET: Pupil
-        public ActionResult Index()
+        public ActionResult Pupils(long id)
         {
-            return View();
+            return PartialView(_pupilsService.GetPupilsByIdClass(id));
         }
 
-        // GET: Pupil/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: Pupil/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Pupil/Create
+        // POST: Class/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult CreatePupil(PupilViewModel vm)
         {
             try
             {
                 // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    _pupilsService.AddPupil(vm);
+                }
+                return RedirectToAction("Index", "Class");
             }
             catch
             {
-                return View();
+                return RedirectToAction("Index", "Class");
             }
         }
 
-        // GET: Pupil/Edit/5
-        public ActionResult Edit(int id)
+        // GET: Class/Edit/5
+        public ActionResult EditPupil(long id)
         {
             return View();
         }
 
-        // POST: Pupil/Edit/5
+        // POST: Class/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult EditPupil(long id, PupilViewModel collection)
         {
             try
             {
                 // TODO: Add update logic here
+                if (ModelState.IsValid)
+                {
 
-                return RedirectToAction("Index");
+                }
+                return RedirectToAction("Index", "Class");
             }
             catch
             {
-                return View();
+                return RedirectToAction("Index", "Class");
             }
         }
 
-        // GET: Pupil/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Pupil/Delete/5
+        // POST: Class/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult DeletePupil(long id)
         {
             try
             {
                 // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
+                _pupilsService.DeletePupil(id);
+                return RedirectToAction("Index", "Class");
             }
             catch
             {
-                return View();
+                return RedirectToAction("Index", "Class");
             }
         }
     }

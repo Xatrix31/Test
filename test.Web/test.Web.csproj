@@ -193,7 +193,6 @@
     <Compile Include="Controllers\ClassController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PupilController.cs" />
-    <Compile Include="Controllers\TeacherController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -278,11 +277,12 @@
     <Content Include="Views\Home\AddClass.cshtml" />
     <Content Include="Views\Class\Index.cshtml" />
     <Content Include="Views\Home\EditClass.cshtml" />
+    <Content Include="Views\Pupil\Pupils.cshtml" />
+    <Content Include="Views\Class\PupilEditor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Pupil\" />
     <Folder Include="Views\Teacher\" />
   </ItemGroup>
   <ItemGroup>
