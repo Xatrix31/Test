@@ -20,8 +20,8 @@ namespace test.Models.Entities
         public string Surname { get; set; }
 
         [Required]
-        [EnumDataType(typeof(Sex))]
-        public string Sex { get; set; }
+        [EnumDataType(typeof(Gender))]
+        public string Gender { get; set; }
 
         [ForeignKey("Class")]
         public long IdClass { get; set; }

@@ -17,9 +17,9 @@ namespace test.Models.ViewModels
         public string Surname { get; set; }
 
         [Required]
-        public Sex Sex { get; set; }
+        public Gender Gender { get; set; }
 
-
+        [Display(Name = "Class Name")]
         public string ClassName { get; set; }
     }
 }

@@ -3,42 +3,37 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using test.Models.Interfaces;
 
 namespace test.Web.Controllers
 {
-    public class ClassController : Controller
+    public class TeacherController : Controller
     {
-        private readonly IPupilsService _pupilsService;
-
-        public ClassController(IPupilsService pupilsService)
-        {
-            _pupilsService = pupilsService;
-        }
-
-        // GET: Class
-        public ActionResult Index(long id)
+        // GET: Teacher
+        public ActionResult Index()
         {
             return View();
         }
 
-        // GET: Class/Create
-        public ActionResult CreatePupil()
+        // GET: Teacher/Details/5
+        public ActionResult Details(int id)
         {
             return View();
         }
 
-        // POST: Class/Create
+        // GET: Teacher/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Teacher/Create
         [HttpPost]
-        public ActionResult CreatePupil(FormCollection collection)
+        public ActionResult Create(FormCollection collection)
         {
             try
             {
                 // TODO: Add insert logic here
-                if (ModelState.IsValid)
-                {
 
-                }
                 return RedirectToAction("Index");
             }
             catch
@@ -47,15 +42,15 @@ namespace test.Web.Controllers
             }
         }
 
-        // GET: Class/Edit/5
-        public ActionResult EditPupil(long id)
+        // GET: Teacher/Edit/5
+        public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Class/Edit/5
+        // POST: Teacher/Edit/5
         [HttpPost]
-        public ActionResult EditPupil(long id, FormCollection collection)
+        public ActionResult Edit(int id, FormCollection collection)
         {
             try
             {
@@ -69,9 +64,15 @@ namespace test.Web.Controllers
             }
         }
 
-        // POST: Class/Delete/5
+        // GET: Teacher/Delete/5
+        public ActionResult Delete(int id)
+        {
+            return View();
+        }
+
+        // POST: Teacher/Delete/5
         [HttpPost]
-        public ActionResult DeletePupil(long id, FormCollection collection)
+        public ActionResult Delete(int id, FormCollection collection)
         {
             try
             {

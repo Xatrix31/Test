@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace test.Models.Enums
 {
-    public enum Sex
+    public enum Gender
     {
         Male,
         Female

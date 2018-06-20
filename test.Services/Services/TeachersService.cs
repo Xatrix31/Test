@@ -38,7 +38,10 @@ namespace test.Services.Services
 
         public void EditTeacher(TeacherViewModel teacher)
         {
-            throw new NotImplementedException();
+            var src = _repository.GetById<Teacher>(teacher.Id);
+            src.Name = teacher.Name;
+            src.Surname = teacher.Surname;
+            _repository.Save(src);
         }
 
         public TeacherViewModel GetTeacherById(long idTeacher)

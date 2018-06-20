@@ -23,10 +23,35 @@ namespace test.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                ViewBag.Message = "Added";
                 _classesService.AddClass(viewModel);
+                ViewBag.Message = "Added";
             }
-            return View("Index", _classesService.GetClasses());
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult EditClass(long id)
+        {
+            return View(_classesService.GetClassById(id));
+        }
+
+        // POST: Class/Edit/5
+        [HttpPost]
+        public ActionResult EditClass(long id, SchoolClassViewModel vm)
+        {
+            try
+            {
+                // TODO: Add update logic here
+                if (ModelState.IsValid)
+                {
+                    _classesService.EditClass(vm);
+                    ViewBag.Message = "Edited";
+                }
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View("Index", _classesService.GetClasses());
+            }
         }
     }
 }

@@ -34,7 +34,9 @@ namespace test.Services.Services
 
         public void EditClass(SchoolClassViewModel viewModel)
         {
-            throw new NotImplementedException();
+            var src = _repository.GetById<SchoolClass>(viewModel.Id);
+            src.ClassName = viewModel.Name;
+            _repository.Save(src);
         }
 
         public SchoolClassViewModel GetClassById(long idClass)

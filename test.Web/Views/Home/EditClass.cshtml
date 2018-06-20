@@ -1,0 +1,13 @@
+﻿@using test.Models.ViewModels
+@{
+    @model SchoolClassViewModel
+    ViewBag.Title = "EditClass";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit Class</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.Partial("AddClass", Model)
+}
