@@ -1,9 +1,6 @@
 ﻿using AutoMapper;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using test.Models.Entities;
 using test.Models.Interfaces;
 using test.Models.ViewModels;
@@ -24,9 +21,9 @@ namespace test.Services.Services
             _repository.AddNew(Mapper.Instance.Map<Teacher>(teacher));
         }
 
-        public void AddTeacherToClass(long idTeacher)
+        public void AddTeacherToClass(long idTeacher, SchoolClassViewModel vm)
         {
-            throw new NotImplementedException();
+            _repository.GetById<Teacher>(idTeacher).Classes.Add(Mapper.Instance.Map<SchoolClass>(vm));
         }
 
         public void DeleteTeacher(long idTeacher)
@@ -51,7 +48,7 @@ namespace test.Services.Services
 
         public IEnumerable<TeacherViewModel> GetTeachersByIdClass(long idClass)
         {
-            throw new NotImplementedException();
+            return _repository.GetById<SchoolClass>(idClass).Teachers.Select(Mapper.Instance.Map<TeacherViewModel>);
         }
     }
 }

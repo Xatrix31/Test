@@ -10,6 +10,6 @@ namespace test.Models.Interfaces
         IEnumerable<TeacherViewModel> GetTeachersByIdClass(long idClass);
         void EditTeacher(TeacherViewModel teacher);
         void DeleteTeacher(long idTeacher);
-        void AddTeacherToClass(long idTeacher);
+        void AddTeacherToClass(long idTeacher, SchoolClassViewModel vm);
     }
 }
