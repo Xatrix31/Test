@@ -14,5 +14,8 @@ namespace test.Models.ViewModels
         [Required(ErrorMessage = "Enter the Surname")]
         [Display(Name = "Surname")]
         public string Surname { get; set; }
+
+        [ScaffoldColumn(false)]
+        public long IdClass { get; set; }
     }
 }

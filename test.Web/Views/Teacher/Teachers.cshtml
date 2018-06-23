@@ -1,0 +1,23 @@
+﻿@using test.Models.ViewModels
+@model IEnumerable<TeacherViewModel>
+
+<table class="table table-striped table-bordered">
+    <caption>Teachers</caption>
+    <thead class="thead-dark">
+        <tr>
+            <td>Name</td>
+            <td>Surname</td>
+            <td>Action</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (TeacherViewModel item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Surname</td>
+                <td>@Html.ActionLink("Remove", "RemoveTeacherFromClass", "Teacher", new { idTeacher = item.Id })</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -8,8 +8,11 @@ namespace test.Models.Interfaces
         void AddTeacher(TeacherViewModel teacher);
         TeacherViewModel GetTeacherById(long idTeacher);
         IEnumerable<TeacherViewModel> GetTeachersByIdClass(long idClass);
+        IEnumerable<TeacherViewModel> GetAllTeachers();
+        IEnumerable<TeacherViewModel> GetTeachersNotInClass(long idClass);
         void EditTeacher(TeacherViewModel teacher);
         void DeleteTeacher(long idTeacher);
-        void AddTeacherToClass(long idTeacher, SchoolClassViewModel vm);
+        void AddTeacherToClass(long idCLass, TeacherViewModel vm);
+        void DeleteTeacherFromClass(long idClass, long idTeacher);
     }
 }

@@ -21,9 +21,10 @@ namespace test.Services.Services
             _repository.AddNew(Mapper.Instance.Map<Teacher>(teacher));
         }
 
-        public void AddTeacherToClass(long idTeacher, SchoolClassViewModel vm)
+        public void AddTeacherToClass(long idCLass, TeacherViewModel vm)
         {
-            _repository.GetById<Teacher>(idTeacher).Classes.Add(Mapper.Instance.Map<SchoolClass>(vm));
+            var myclass = _repository.GetById<SchoolClass>(idCLass);
+            _repository.GetById<Teacher>(vm.Id).Classes.Add(myclass);
         }
 
         public void DeleteTeacher(long idTeacher)
@@ -41,6 +42,17 @@ namespace test.Services.Services
             _repository.Save(src);
         }
 
+        public IEnumerable<TeacherViewModel> GetAllTeachers()
+        {
+            return _repository.GetAll<Teacher>().AsEnumerable().Select(Mapper.Instance.Map<TeacherViewModel>);
+        }
+
+        public void DeleteTeacherFromClass(long idClass, long idTeacher)
+        {
+            var temp = _repository.GetById<SchoolClass>(idClass);
+            _repository.GetById<Teacher>(idTeacher).Classes.Remove(temp);
+        }
+
         public TeacherViewModel GetTeacherById(long idTeacher)
         {
             return Mapper.Instance.Map<TeacherViewModel>(_repository.GetById<Teacher>(idTeacher));
@@ -49,6 +61,11 @@ namespace test.Services.Services
         public IEnumerable<TeacherViewModel> GetTeachersByIdClass(long idClass)
         {
             return _repository.GetById<SchoolClass>(idClass).Teachers.Select(Mapper.Instance.Map<TeacherViewModel>);
+        }
+
+        public IEnumerable<TeacherViewModel> GetTeachersNotInClass(long idClass)
+        {
+            return _repository.GetAll<SchoolClass>().Where(x => x.Id != idClass).Select(x => Mapper.Instance.Map<TeacherViewModel>(x.Teachers));
         }
     }
 }

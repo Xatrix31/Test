@@ -22,5 +22,8 @@ namespace test.Models.ViewModels
         [Required]
         [ScaffoldColumn(false)]
         public long IdClass { get; set; }
+
+        [Display(Name ="Class Name")]
+        public string SchoolClassName { get; set; }
     }
 }
