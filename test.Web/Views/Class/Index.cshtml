@@ -17,7 +17,8 @@
     @{ Html.RenderAction("TeachersByClass", "Teacher", new { id = Model.Id }); }
     @using (Html.BeginForm())
     {
-        
-        <input type="submit" value="Add"/>
+
+        <input type="submit" value="Add" />
+        @Html.ActionLink("Add new", "AddTeacher", "Teacher")
     }
 </div>

@@ -1,20 +1,24 @@
 ﻿@using test.Models.ViewModels
 @model test.Web.Models.FilterViewModel
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "All pupils";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>All pupils</h2>
 <div>
-    <div>
+    @using (Html.BeginForm())
+    {
         <div>
             <label>Gender:</label> @Html.DropDownList("gender", Model.Genders)
         </div>
         <div>
             <label>Class:</label> @Html.DropDownList("className", Model.SchoolClasses)
         </div>
-    </div>
+        <input type="submit" value="Filter" />
+        @Html.ActionLink("Drop filters", "Index")
+    }
+    <br>
     <table class="table table-striped table-bordered">
         <tr>
             <th>Name</th>

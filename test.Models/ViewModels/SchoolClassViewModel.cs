@@ -7,7 +7,7 @@ namespace test.Models.ViewModels
         [ScaffoldColumn(false)]
         public long Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="Write Class Name")]
         [Display(Name="Class Name")]
         public string Name { get; set; }
     }

@@ -16,7 +16,7 @@ namespace test.Models.ViewModels
         [Display(Name = "Surname")]
         public string Surname { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="Choose Gender")]
         public Gender Gender { get; set; }
 
         [Required]
