@@ -16,6 +16,10 @@
         @Html.EnumDropDownListFor(x => x.Gender)
         @Html.ValidationMessageFor(x => x.Gender)
     </div>
-    @Html.HiddenFor(x=> x.IdClass)
+    @Html.HiddenFor(x => x.IdClass)
 </div>
-<input type="submit" value="Submit" class="btn-dark"/>
+<input type="submit" value="Submit" class="btn-dark" />
+@if (ViewBag.Title == "EditPupil")
+{
+    @Html.ActionLink("Cancel", "Index", "Class", new {id = Model.IdClass}, null)
+}
