@@ -10,5 +10,7 @@ namespace test.Models.Interfaces
         IEnumerable<PupilViewModel> GetPupilsByIdClass(long idClass);
         void EditPupil(PupilViewModel pupil);
         void DeletePupil(long idPupil);
+        IEnumerable<PupilViewModel> GetAllPupils();
+        IEnumerable<PupilViewModel> GetFilteredPupils(string gender, string schoolClass);
     }
 }

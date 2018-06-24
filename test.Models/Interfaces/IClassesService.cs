@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using test.Models.ViewModels;
 
 namespace test.Models.Interfaces
@@ -14,5 +10,6 @@ namespace test.Models.Interfaces
         void AddClass(SchoolClassViewModel viewModel);
         void EditClass(SchoolClassViewModel viewModel);
         void DeleteClass(long idClass);
+        IEnumerable<string> GetClassNames();
     }
 }

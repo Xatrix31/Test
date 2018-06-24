@@ -32,6 +32,11 @@ namespace test.Services.Services
             _repository.Delete<SchoolClass>(idClass);
         }
 
+        public IEnumerable<string> GetClassNames()
+        {
+            return _repository.GetAll<SchoolClass>().Select(x => x.ClassName);
+        }
+
         public void EditClass(SchoolClassViewModel viewModel)
         {
             var src = _repository.GetById<SchoolClass>(viewModel.Id);

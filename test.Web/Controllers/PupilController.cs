@@ -21,7 +21,6 @@ namespace test.Web.Controllers
 
         // POST: Class/Create
         [HttpPost]
-        [ChildActionOnly]
         public ActionResult CreatePupil(PupilViewModel vm)
         {
             try
@@ -47,7 +46,6 @@ namespace test.Web.Controllers
 
         // POST: Class/Edit/5
         [HttpPost]
-        [ChildActionOnly]
         public ActionResult EditPupil(long id, PupilViewModel vm)
         {
             try

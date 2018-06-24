@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using test.Models.Entities;
@@ -25,6 +24,19 @@ namespace test.Services.Services
         public void DeletePupil(long idPupil)
         {
             _repository.Delete<Pupil>(idPupil);
+        }
+
+        public IEnumerable<PupilViewModel> GetAllPupils()
+        {
+            return _repository.GetAll<Pupil>().AsEnumerable().Select(Mapper.Instance.Map<PupilViewModel>);
+        }
+
+        public IEnumerable<PupilViewModel> GetFilteredPupils(string gender, string schoolClass)
+        {
+            var query = _repository.GetAll<Pupil>();
+            if (!string.IsNullOrEmpty(gender)) query = query.Where(x => x.Gender.Equals(gender));
+            if (!string.IsNullOrEmpty(schoolClass)) query = query.Where(x => x.Class.ClassName.Equals(schoolClass));
+            return query.AsEnumerable().Select(Mapper.Instance.Map<PupilViewModel>);
         }
 
         public void EditPupil(PupilViewModel pupil)
