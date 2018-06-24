@@ -30,7 +30,6 @@ namespace test.Web.Controllers
         }
 
         [HttpPost]
-        [ChildActionOnly]
         public ActionResult AddTeacherToClass(long id, TeacherViewModel vm)
         {
             _teacherService.AddTeacherToClass(id, vm);

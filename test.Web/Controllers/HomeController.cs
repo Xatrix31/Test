@@ -19,6 +19,7 @@ namespace test.Web.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult AddClass(SchoolClassViewModel viewModel)
         {
             if (ModelState.IsValid)
@@ -36,6 +37,7 @@ namespace test.Web.Controllers
 
         // POST: Class/Edit/5
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult EditClass(long id, SchoolClassViewModel vm)
         {
             try

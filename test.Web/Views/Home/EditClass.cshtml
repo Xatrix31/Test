@@ -9,5 +9,6 @@
 
 @using (Html.BeginForm())
 {
+    @Html.AntiForgeryToken()
     @Html.Partial("AddClass", Model)
 }

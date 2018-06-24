@@ -7,5 +7,6 @@
 <h2>EditPupil</h2>
 @using (Html.BeginForm("EditPupil", "Pupil"))
 {
+    @Html.AntiForgeryToken()
     @Html.Partial("PupilEditor", Model)
 }

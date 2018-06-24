@@ -25,6 +25,7 @@
     </table><br><br>
     @using (Html.BeginForm("AddClass", "Home"))
     {
+        @Html.AntiForgeryToken()
         @Html.Partial("AddClass", new SchoolClassViewModel())
     }
 </div>
