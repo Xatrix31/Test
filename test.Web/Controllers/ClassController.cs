@@ -1,26 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using test.Models.Interfaces;
-using test.Models.ViewModels;
+using test.Web.Models;
 
 namespace test.Web.Controllers
 {
     public class ClassController : Controller
     {
         private readonly IClassesService _classesService;
+        private readonly ITeachersService _teachersService;
 
-        public ClassController(IClassesService classesService)
+        public ClassController(IClassesService classesService, ITeachersService teachersService)
         {
             _classesService = classesService;
+            _teachersService = teachersService;
         }
 
         // GET: Class
         public ActionResult Index(long id)
         {
-            return View(_classesService.GetClassById(id));
+            var currentClass = _classesService.GetClassById(id);
+            return View(new MyViewModel
+            {
+                Id = currentClass.Id,
+                Name = currentClass.Name,
+                FreeTeachers = new SelectList(_teachersService.GetTeachersNotInClass(id), "Id", "FullName")
+            });
         }
     }
 }

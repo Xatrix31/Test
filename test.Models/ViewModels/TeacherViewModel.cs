@@ -15,6 +15,8 @@ namespace test.Models.ViewModels
         [Display(Name = "Surname")]
         public string Surname { get; set; }
 
+        public string FullName { get; set; }
+
         [ScaffoldColumn(false)]
         public long IdClass { get; set; }
     }

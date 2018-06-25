@@ -199,6 +199,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\FilterViewModel.cs" />
+    <Compile Include="Models\MyViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -275,7 +276,7 @@
     <Content Include="Views\Shared\PupilEditor.cshtml" />
     <Content Include="Views\Pupil\EditPupil.cshtml" />
     <Content Include="Views\Teacher\Teachers.cshtml" />
-    <Content Include="Views\Shared\TeacherEditor.cshtml" />
+    <Content Include="Views\Teacher\TeacherEditor.cshtml" />
     <Content Include="Views\Teacher\AddTeacher.cshtml" />
     <Content Include="Views\Filters\Index.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />

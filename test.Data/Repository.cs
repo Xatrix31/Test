@@ -35,7 +35,7 @@ namespace test.Data
             Save();
         }
 
-        private void Save()
+        public void Save()
         {
             _context.SaveChanges();
         }

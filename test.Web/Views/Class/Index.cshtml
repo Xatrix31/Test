@@ -1,5 +1,5 @@
 ﻿@using test.Models.ViewModels
-@model SchoolClassViewModel
+@model test.Web.Models.MyViewModel
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -15,9 +15,9 @@
 </div>
 <div class="col-md-6 float-right">
     @{ Html.RenderAction("TeachersByClass", "Teacher", new { id = Model.Id }); }
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("AddTeacherToClass", "Teacher", new { id = Model.Id }, FormMethod.Post))
     {
-
+        @Html.DropDownList("idTeacher", Model.FreeTeachers)
         <input type="submit" value="Add" />
         @Html.ActionLink("Add new", "AddTeacher", "Teacher")
     }

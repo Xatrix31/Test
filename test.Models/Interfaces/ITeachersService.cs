@@ -12,7 +12,7 @@ namespace test.Models.Interfaces
         IEnumerable<TeacherViewModel> GetTeachersNotInClass(long idClass);
         void EditTeacher(TeacherViewModel teacher);
         void DeleteTeacher(long idTeacher);
-        void AddTeacherToClass(long idCLass, TeacherViewModel vm);
+        void AddTeacherToClass(long idCLass, long idTeacher);
         void DeleteTeacherFromClass(long idClass, long idTeacher);
     }
 }

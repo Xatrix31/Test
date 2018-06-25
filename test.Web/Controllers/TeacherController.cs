@@ -30,9 +30,9 @@ namespace test.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddTeacherToClass(long id, TeacherViewModel vm)
+        public ActionResult AddTeacherToClass(long? id, long idTeacher)
         {
-            _teacherService.AddTeacherToClass(id, vm);
+            _teacherService.AddTeacherToClass(id.Value, idTeacher);
             return RedirectToAction("Index", "Class", new { id });
         }
 
