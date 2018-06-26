@@ -11,5 +11,7 @@ namespace test.Models.Interfaces
         void EditClass(SchoolClassViewModel viewModel);
         void DeleteClass(long idClass);
         IEnumerable<string> GetClassNames();
+        PupilViewModel GetMonitor(long idClass);
+        void SetMonitor(PupilViewModel pupil);
     }
 }

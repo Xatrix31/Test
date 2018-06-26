@@ -23,6 +23,7 @@ namespace test.Models.Entities
         [EnumDataType(typeof(Gender))]
         public string Gender { get; set; }
 
+        [Required]
         [ForeignKey("Class")]
         public long IdClass { get; set; }
 

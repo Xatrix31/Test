@@ -12,6 +12,7 @@ namespace test.Models.Entities
         [MaxLength]
         public string ClassName { get; set; }
 
+        public virtual Pupil Monitor { get; set; }
         public virtual ICollection<Pupil> Pupils { get; set; }
         public virtual ICollection<Teacher> Teachers { get; set; }
     }

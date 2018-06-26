@@ -8,7 +8,10 @@ namespace test.Models.ViewModels
         public long Id { get; set; }
 
         [Required(ErrorMessage = "Write Class Name")]
-        [Display(Name = "Class Name")]
+        [Display(Name = "Class Name: ")]
         public string Name { get; set; }
+
+        [Display(Name = "Monitor: ")]
+        public string MonitorName { get; set; }
     }
 }

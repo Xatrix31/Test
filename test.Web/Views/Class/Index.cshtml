@@ -5,7 +5,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <h2>Class Details</h2>
-<p>@Html.DisplayNameFor(x => x.Name): @Html.DisplayFor(x => x.Name)</p>
+<p>@Html.DisplayNameFor(x => x.Name)@Html.DisplayFor(x => x.Name)</p>
+<p>
+    @Html.DisplayNameFor(x => x.MonitorName)
+    @if (!string.IsNullOrEmpty(Model.MonitorName))
+    {
+        @Html.DisplayFor(x => x.MonitorName)
+    }
+</p>
 <div class="col-md-6 float-left">
     @{ Html.RenderAction("Pupils", "Pupil", new { id = Model.Id }); }
     @using (Html.BeginForm("CreatePupil", "Pupil"))

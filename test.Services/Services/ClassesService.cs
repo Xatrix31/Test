@@ -53,5 +53,16 @@ namespace test.Services.Services
         {
             return _repository.GetAll<SchoolClass>().AsEnumerable().Select(Mapper.Instance.Map<SchoolClassViewModel>);
         }
+
+        public PupilViewModel GetMonitor(long idClass)
+        {
+            return Mapper.Instance.Map<PupilViewModel>(_repository.GetById<SchoolClass>(idClass).Monitor);
+        }
+
+        public void SetMonitor(PupilViewModel pupil)
+        {
+            _repository.GetById<SchoolClass>(pupil.IdClass).Monitor = Mapper.Instance.Map<Pupil>(pupil);
+            _repository.Save();
+        }
     }
 }

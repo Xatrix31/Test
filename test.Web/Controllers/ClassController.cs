@@ -23,6 +23,7 @@ namespace test.Web.Controllers
             {
                 Id = currentClass.Id,
                 Name = currentClass.Name,
+                MonitorName = currentClass.MonitorName,
                 FreeTeachers = new SelectList(_teachersService.GetTeachersNotInClass(id), "Id", "FullName")
             });
         }
