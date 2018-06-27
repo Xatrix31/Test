@@ -70,5 +70,10 @@ namespace test.Services.Services
 
             return query.AsEnumerable().Select(Mapper.Instance.Map<TeacherViewModel>);
         }
+
+        public IEnumerable<TeacherTypeViewModel> GetAllTypes()
+        {
+            return _repository.GetAll<TeacherType>().AsEnumerable().Select(Mapper.Instance.Map<TeacherTypeViewModel>);
+        }
     }
 }

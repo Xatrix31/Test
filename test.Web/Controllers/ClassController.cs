@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using test.Models.Interfaces;
+using test.Models.ViewModels;
 using test.Web.Models;
 
 namespace test.Web.Controllers
@@ -26,6 +27,16 @@ namespace test.Web.Controllers
                 MonitorName = currentClass.MonitorName,
                 FreeTeachers = new SelectList(_teachersService.GetTeachersNotInClass(id), "Id", "FullName")
             });
+        }
+
+
+        public ActionResult SetMonitor(PupilViewModel vm)
+        {
+            if (vm != null)
+            {
+                _classesService.SetMonitor(vm);
+            }
+            return RedirectToAction("Index", new { id = vm?.IdClass });
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using test.Data.Migrations;
 using test.Models.Entities;
 
 namespace test.Data.Context
@@ -31,6 +32,7 @@ namespace test.Data.Context
             modelBuilder.Entity<Pupil>().ToTable("Pupils");
             modelBuilder.Entity<Teacher>().ToTable("Teachers");
             modelBuilder.Entity<SchoolClass>().ToTable("SchoolClasses");
+            modelBuilder.Entity<TeacherType>().ToTable("TeacherTypes", "NSI");
         }
 
         // Добавьте DbSet для каждого типа сущности, который требуется включить в модель. Дополнительные сведения 
@@ -39,5 +41,6 @@ namespace test.Data.Context
         public virtual DbSet<Pupil> Pupils { get; set; }
         public virtual DbSet<Teacher> Teachers { get; set; }
         public virtual DbSet<SchoolClass> SchoolClasses { get; set; }
+        public virtual DbSet<TeacherType> TeacherTypes { get; set; }
     }
 }

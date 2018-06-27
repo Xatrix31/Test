@@ -17,6 +17,10 @@ namespace test.Models.ViewModels
 
         public string FullName { get; set; }
 
+        [Required(ErrorMessage = "Choose type")]
+        [Display(Name = "Teacher type")]
+        public string TeacherType { get; set; }
+
         [ScaffoldColumn(false)]
         public long IdClass { get; set; }
     }

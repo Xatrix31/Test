@@ -66,6 +66,14 @@
     <Compile Include="Migrations\201806261802335_Monitors2.Designer.cs">
       <DependentUpon>201806261802335_Monitors2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806271421162_TeacherTypes1.cs" />
+    <Compile Include="Migrations\201806271421162_TeacherTypes1.Designer.cs">
+      <DependentUpon>201806271421162_TeacherTypes1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806271426172_TeacherTypes2.cs" />
+    <Compile Include="Migrations\201806271426172_TeacherTypes2.Designer.cs">
+      <DependentUpon>201806271426172_TeacherTypes2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository.cs" />
@@ -92,6 +100,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806261802335_Monitors2.resx">
       <DependentUpon>201806261802335_Monitors2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806271421162_TeacherTypes1.resx">
+      <DependentUpon>201806271421162_TeacherTypes1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806271426172_TeacherTypes2.resx">
+      <DependentUpon>201806271426172_TeacherTypes2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

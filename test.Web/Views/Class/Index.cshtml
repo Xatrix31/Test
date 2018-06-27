@@ -13,11 +13,12 @@
         @Html.DisplayFor(x => x.MonitorName)
     }
 </p>
+
 <div class="col-md-6 float-left">
-    @{ Html.RenderAction("Pupils", "Pupil", new { id = Model.Id }); }
+@{ Html.RenderAction("Pupils", "Pupil", new {id = Model.Id}); }
     @using (Html.BeginForm("CreatePupil", "Pupil"))
     {
-        @Html.Partial("PupilEditor", new PupilViewModel { IdClass = Model.Id })
+        @Html.Partial("PupilEditor", new PupilViewModel {IdClass = Model.Id})
     }
 </div>
 <div class="col-md-6 float-right">

@@ -19,6 +19,11 @@ namespace test.Models.Entities
         [MaxLength]
         public string Surname { get; set; }
 
+        [Required]
+        [ForeignKey("TeacherType")]
+        public long IdType { get; set; }
+
+        public virtual TeacherType TeacherType { get; set; }
         public virtual ICollection<SchoolClass> Classes { get; set; }
     }
 }
