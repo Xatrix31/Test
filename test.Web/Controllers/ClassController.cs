@@ -30,13 +30,10 @@ namespace test.Web.Controllers
         }
 
 
-        public ActionResult SetMonitor(PupilViewModel vm)
+        public ActionResult SetMonitor(long id, long vm)
         {
-            if (vm != null)
-            {
-                _classesService.SetMonitor(vm);
-            }
-            return RedirectToAction("Index", new { id = vm?.IdClass });
+            _classesService.SetMonitor(id, vm);
+            return RedirectToAction("Index", new { id });
         }
     }
 }

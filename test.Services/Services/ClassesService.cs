@@ -59,9 +59,9 @@ namespace test.Services.Services
             return Mapper.Instance.Map<PupilViewModel>(_repository.GetById<SchoolClass>(idClass).Monitor);
         }
 
-        public void SetMonitor(PupilViewModel pupil)
+        public void SetMonitor(long idClass,long pupil)
         {
-            _repository.GetById<SchoolClass>(pupil.IdClass).Monitor = Mapper.Instance.Map<Pupil>(pupil);
+            _repository.GetById<SchoolClass>(idClass).Monitor = Mapper.Instance.Map<Pupil>(_repository.GetById<Pupil>(pupil));
             _repository.Save();
         }
     }

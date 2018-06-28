@@ -1,11 +1,11 @@
 ﻿@model test.Models.ViewModels.SchoolClassViewModel
 
-<div class="jumbotron">
-    @Html.DisplayNameFor(x => x.Name)
-    @Html.EditorFor(x => x.Name)
-    <br>
-    @Html.ValidationMessageFor(x => x.Name)
-    <br>
+<div class="form-group col-md-12">
+    <div>
+        @Html.DisplayNameFor(x => x.Name)
+        @Html.EditorFor(x => x.Name)
+        @Html.ValidationMessageFor(x => x.Name)
+    </div>
     <input type="submit" value="@(ViewBag.Title ?? "Add Class")" class="btn-primary" />
     @if (!string.IsNullOrEmpty(ViewBag.Title))
     {
