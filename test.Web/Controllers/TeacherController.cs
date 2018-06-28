@@ -16,7 +16,10 @@ namespace test.Web.Controllers
 
         public ActionResult AddTeacher()
         {
-            return View();
+            return View(new EditTeacherViewModel
+            {
+                TeacherTypes = new SelectList(_teacherService.GetAllTypes(), "Title", "Title")
+            });
         }
 
         [HttpPost]

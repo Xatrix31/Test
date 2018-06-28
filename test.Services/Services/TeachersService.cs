@@ -18,7 +18,7 @@ namespace test.Services.Services
 
         public void AddTeacher(TeacherViewModel teacher)
         {
-            var dest = Mapper.Instance.Map<Teacher>(teacher);
+            var dest = Mapper.Instance.Map<Teacher>(teacher); //mapper exception IdType
             dest.IdType = _repository.GetAll<TeacherType>().FirstOrDefault(x => x.Title.Equals(teacher.TeacherType)).Id;
             _repository.AddNew(dest);
         }

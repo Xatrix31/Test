@@ -1,4 +1,4 @@
-﻿@model test.Models.ViewModels.TeacherViewModel
+﻿@model test.Web.Models.EditTeacherViewModel
 <div>
     <div>
         @Html.DisplayNameFor(x => x.Name)
@@ -9,6 +9,11 @@
         @Html.DisplayNameFor(x => x.Surname)
         @Html.EditorFor(x => x.Surname)
         @Html.ValidationMessageFor(x => x.Surname)
+    </div>
+    <div>
+        @Html.DisplayNameFor(x => x.TeacherType)
+        @Html.DropDownListFor(x => x.TeacherType, Model.TeacherTypes)
+        @Html.ValidationMessageFor(x => x.TeacherType)
     </div>
 </div>
 <input type="submit" value="Submit" class="btn-dark" />
