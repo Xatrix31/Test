@@ -15,5 +15,8 @@ namespace test.Models.Interfaces
         void AddTeacherToClass(long idCLass, long idTeacher);
         void DeleteTeacherFromClass(long idClass, long idTeacher);
         IEnumerable<TeacherTypeViewModel> GetAllTypes();
+        TeacherViewModel GetDirector();
+        void SetDirector(long vm);
+        IEnumerable<TeacherViewModel> GetHeadTeachers();
     }
 }

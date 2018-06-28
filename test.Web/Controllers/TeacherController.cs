@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
 using test.Models.Interfaces;
 using test.Models.ViewModels;
+using test.Web.Models;
 
 namespace test.Web.Controllers
 {
@@ -51,6 +52,18 @@ namespace test.Web.Controllers
         {
             _teacherService.DeleteTeacherFromClass(id, idTeacher);
             return RedirectToAction("Index", "Class", new { id });
+        }
+
+        public ActionResult ChangeDirector()
+        {
+            return View(new SelectList(_teacherService.GetAllTeachers(), "Id", "FullName", _teacherService.GetDirector()));
+        }
+
+        [HttpPost]
+        public ActionResult ChangeDirector(long vm)
+        {
+            _teacherService.SetDirector(vm);
+            return RedirectToAction("Index", "Home");
         }
     }
 }

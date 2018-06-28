@@ -47,7 +47,7 @@ namespace test.Web.Controllers
         // POST: Class/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditPupil(long id, PupilViewModel vm)
+        public ActionResult EditPupil(PupilViewModel vm)
         {
             try
             {

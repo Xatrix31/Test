@@ -7,14 +7,17 @@ namespace test.Web.Controllers
     public class HomeController : Controller
     {
         private readonly IClassesService _classesService;
+        private readonly ITeachersService _teacherService;
 
-        public HomeController(IClassesService classesService)
+        public HomeController(IClassesService classesService, ITeachersService teacherService)
         {
             _classesService = classesService;
+            _teacherService = teacherService;
         }
 
         public ActionResult Index()
         {
+            ViewBag.Director = _teacherService.GetDirector();
             return View(_classesService.GetClasses());
         }
 

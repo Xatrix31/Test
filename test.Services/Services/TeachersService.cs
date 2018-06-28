@@ -18,7 +18,9 @@ namespace test.Services.Services
 
         public void AddTeacher(TeacherViewModel teacher)
         {
-            _repository.AddNew(Mapper.Instance.Map<Teacher>(teacher));
+            var dest = Mapper.Instance.Map<Teacher>(teacher);
+            dest.IdType = _repository.GetAll<TeacherType>().FirstOrDefault(x => x.Title.Equals(teacher.TeacherType)).Id;
+            _repository.AddNew(dest);
         }
 
         public void AddTeacherToClass(long idCLass, long idTeacher)
@@ -74,6 +76,30 @@ namespace test.Services.Services
         public IEnumerable<TeacherTypeViewModel> GetAllTypes()
         {
             return _repository.GetAll<TeacherType>().AsEnumerable().Select(Mapper.Instance.Map<TeacherTypeViewModel>);
+        }
+
+        public TeacherViewModel GetDirector()
+        {
+            return Mapper.Instance.Map<TeacherViewModel>(_repository.GetById<TeacherType>(1).Teachers.FirstOrDefault());
+        }
+
+        public void SetDirector(long vm)
+        {
+            var currentdirector = _repository.GetAll<Teacher>().FirstOrDefault(x => x.IdType == 1);
+            if (currentdirector != null)
+            {
+                currentdirector.IdType = 3;
+            }
+            _repository.Save();
+
+            var teacher = _repository.GetById<Teacher>(vm);
+            teacher.IdType = 1;
+            _repository.Save();
+        }
+
+        public IEnumerable<TeacherViewModel> GetHeadTeachers()
+        {
+            return _repository.GetById<TeacherType>(2).Teachers.Select(Mapper.Instance.Map<TeacherViewModel>);
         }
     }
 }

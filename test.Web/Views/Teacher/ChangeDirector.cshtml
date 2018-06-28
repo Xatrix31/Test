@@ -1,0 +1,15 @@
+﻿@model SelectList
+
+@{
+    ViewBag.Title = "ChangeDirector";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ChangeDirector</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.DropDownList("vm", Model)<br>
+    <input type="submit" value="Submit" class="btn-primary" />
+    @Html.ActionLink("Cancel", "Index", "Home")
+}

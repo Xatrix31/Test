@@ -13,8 +13,7 @@ namespace test.Data.Context
         // 
         // Если требуется выбрать другую базу данных или поставщик базы данных, измените строку подключения "Model" 
         // в файле конфигурации приложения.
-        public Model()
-            : base("name=Model")
+        public Model() : base("name=Model")
         {
         }
 
