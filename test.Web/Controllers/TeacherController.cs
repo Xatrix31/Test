@@ -34,9 +34,10 @@ namespace test.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddTeacherToClass(long? id, long idTeacher)
+        public ActionResult AddTeacherToClass(long? id, long? idTeacher)
         {
-            _teacherService.AddTeacherToClass(id.Value, idTeacher);
+            if (id != null && idTeacher != null)
+                _teacherService.AddTeacherToClass(id.Value, idTeacher.Value);
             return RedirectToAction("Index", "Class", new { id });
         }
 
@@ -50,7 +51,6 @@ namespace test.Web.Controllers
             return PartialView("Teachers", _teacherService.GetAllTeachers());
         }
 
-        [HttpPost]
         public ActionResult RemoveTeacherFromClass(long id, long idTeacher)
         {
             _teacherService.DeleteTeacherFromClass(id, idTeacher);

@@ -16,7 +16,7 @@
             <tr>
                 <td>@item.Name</td>
                 <td>@item.Surname</td>
-                <td>@Html.ActionLink("Remove", "RemoveTeacherFromClass", "Teacher", new { idTeacher = item.Id })</td>
+                <td>@Html.ActionLink("Remove", "RemoveTeacherFromClass", "Teacher", new { id = item.IdClass, idTeacher = item.Id }, null)</td>
             </tr>
         }
     </tbody>

@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace test.Models.Entities
 {
+    [Table("SchoolClasses")]
     public class SchoolClass : IEntity
     {
         public long Id { get; set; }

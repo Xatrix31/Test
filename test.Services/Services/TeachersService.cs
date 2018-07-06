@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System;
+using AutoMapper;
 using System.Collections.Generic;
 using System.Linq;
 using test.Models.Entities;
@@ -18,8 +19,12 @@ namespace test.Services.Services
 
         public void AddTeacher(TeacherViewModel teacher)
         {
-            var dest = Mapper.Instance.Map<Teacher>(teacher); //mapper exception IdType
-            dest.IdType = _repository.GetAll<TeacherType>().FirstOrDefault(x => x.Title.Equals(teacher.TeacherType)).Id;
+            var dest = new Teacher
+            {
+                Name = teacher.Name,
+                Surname = teacher.Surname,
+                IdType = _repository.GetAll<TeacherType>().FirstOrDefault(x => x.Title.Equals(teacher.TeacherType)).Id
+            };
             _repository.AddNew(dest);
         }
 
@@ -54,6 +59,7 @@ namespace test.Services.Services
         {
             var temp = _repository.GetById<SchoolClass>(idClass);
             _repository.GetById<Teacher>(idTeacher).Classes.Remove(temp);
+            _repository.Save();
         }
 
         public TeacherViewModel GetTeacherById(long idTeacher)
@@ -63,14 +69,17 @@ namespace test.Services.Services
 
         public IEnumerable<TeacherViewModel> GetTeachersByIdClass(long idClass)
         {
-            return _repository.GetById<SchoolClass>(idClass).Teachers.Select(Mapper.Instance.Map<TeacherViewModel>);
+            return _repository.GetById<SchoolClass>(idClass).Teachers.Select(y =>
+            {
+                var map = Mapper.Instance.Map<TeacherViewModel>(y);
+                map.IdClass = idClass;
+                return map;
+            });
         }
 
         public IEnumerable<TeacherViewModel> GetTeachersNotInClass(long idClass)
         {
-            var teachersinclass = _repository.GetById<SchoolClass>(idClass).Teachers.AsEnumerable();
-            var query = _repository.GetAll<Teacher>().Except(teachersinclass).ToList();
-            return query.AsEnumerable().Select(Mapper.Instance.Map<TeacherViewModel>);
+            return _repository.GetAll<Teacher>().Where(x => x.Classes.All(y => y.Id != idClass)).AsEnumerable().Select(Mapper.Instance.Map<TeacherViewModel>);
         }
 
         public IEnumerable<TeacherTypeViewModel> GetAllTypes()
