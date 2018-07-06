@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace test.Models.Entities
 {
     [Table("Teachers")]
-    public class Teacher
+    public class Teacher : IEntity
     {
         public long Id { get; set; }
 

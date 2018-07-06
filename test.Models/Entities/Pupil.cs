@@ -5,7 +5,7 @@ using test.Models.Enums;
 namespace test.Models.Entities
 {
     [Table("Pupils")]
-    public class Pupil
+    public class Pupil : IEntity
     {
         public long Id { get; set; }
 

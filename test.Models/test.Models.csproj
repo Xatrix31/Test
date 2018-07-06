@@ -46,6 +46,7 @@
     <Compile Include="Entities\Teacher.cs" />
     <Compile Include="Entities\TeacherType.cs" />
     <Compile Include="Enums\Gender.cs" />
+    <Compile Include="IEntity.cs" />
     <Compile Include="Interfaces\IClassesService.cs" />
     <Compile Include="Interfaces\IPupilsService.cs" />
     <Compile Include="Interfaces\IRepository.cs" />

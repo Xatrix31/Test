@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace test.Models.Entities
 {
-    public class SchoolClass
+    public class SchoolClass : IEntity
     {
         public long Id { get; set; }
 

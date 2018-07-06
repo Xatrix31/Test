@@ -68,8 +68,8 @@ namespace test.Services.Services
 
         public IEnumerable<TeacherViewModel> GetTeachersNotInClass(long idClass)
         {
-            var query = _repository.GetAll<Teacher>();
-
+            var teachersinclass = _repository.GetById<SchoolClass>(idClass).Teachers.AsEnumerable();
+            var query = _repository.GetAll<Teacher>().Except(teachersinclass).ToList();
             return query.AsEnumerable().Select(Mapper.Instance.Map<TeacherViewModel>);
         }
 
