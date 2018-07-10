@@ -9,7 +9,7 @@
 
 @using (Html.BeginForm())
 {
-    @Html.DropDownList("vm", Model)<br>
-    <input type="submit" value="Submit" class="btn-primary" />
+    @Html.DropDownList("vm", Model)<br><br>
+    <input type="submit" value="Submit" class="btn-primary btn" />
     @Html.ActionLink("Cancel", "Index", "Home")
 }

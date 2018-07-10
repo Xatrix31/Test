@@ -5,7 +5,7 @@
         @Html.DisplayNameFor(x => x.Name)
         @Html.EditorFor(x => x.Name, new { htmlAttributes = new { @class = "form-control" } })
         @Html.ValidationMessageFor(x => x.Name)
-    </div>
+    </div><br>
     <input type="submit" value="@(ViewBag.Title ?? "Add Class")" class="btn-primary btn" />
     @if (!string.IsNullOrEmpty(ViewBag.Title))
     {
