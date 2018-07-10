@@ -3,22 +3,22 @@
 <div class="form-group col-md-12">
     <div>
         @Html.DisplayNameFor(x => x.Name)
-        @Html.EditorFor(x => x.Name)
+        @Html.EditorFor(x => x.Name, new { htmlAttributes = new { @class = "form-control" } })
         @Html.ValidationMessageFor(x => x.Name)
     </div>
     <div>
         @Html.DisplayNameFor(x => x.Surname)
-        @Html.EditorFor(x => x.Surname)
+        @Html.EditorFor(x => x.Surname, new { htmlAttributes = new { @class = "form-control" } })
         @Html.ValidationMessageFor(x => x.Surname)
     </div>
     <div>
         @Html.DisplayNameFor(x => x.Gender)
-        @Html.EnumDropDownListFor(x => x.Gender)
+        @Html.EnumDropDownListFor(x => x.Gender, new { htmlAttributes = new { @class = "form-control" } })
         @Html.ValidationMessageFor(x => x.Gender)
     </div>
     @Html.HiddenFor(x => x.IdClass)
 </div>
-<input type="submit" value="Submit" class="btn-dark" />
+<input type="submit" value="Submit" class="btn-dark btn" />
 @if (ViewBag.Title == "EditPupil")
 {
     @Html.ActionLink("Cancel", "Index", "Class", new { id = Model.IdClass }, null)

@@ -13,11 +13,11 @@
         @Html.DisplayFor(x => x.MonitorName)
     }
 </p>
-
 <div class="col-md-6 float-left">
 @{ Html.RenderAction("Pupils", "Pupil", new {id = Model.Id}); }
     @using (Html.BeginForm("CreatePupil", "Pupil"))
     {
+        @Html.AntiForgeryToken()
         @Html.Partial("PupilEditor", new PupilViewModel {IdClass = Model.Id})
     }
 </div>
@@ -26,7 +26,7 @@
     @using (Html.BeginForm("AddTeacherToClass", "Teacher", new { id = Model.Id }, FormMethod.Post))
     {
         @Html.DropDownList("idTeacher", Model.FreeTeachers)
-        <input type="submit" value="Add" />
+        <input type="submit" value="Add" class="btn btn-dark"/>
         @Html.ActionLink("Add new", "AddTeacher", "Teacher")
     }
 </div>

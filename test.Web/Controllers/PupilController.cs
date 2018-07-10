@@ -21,6 +21,7 @@ namespace test.Web.Controllers
 
         // POST: Class/Create
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult CreatePupil(PupilViewModel vm)
         {
             try
